@@ -13,7 +13,7 @@ class CrateDownloads {
     required this.version_downloads,
   });
 
-  Meta meta;
+  DownloadsMeta meta;
   List<VersionDownload> version_downloads;
 
   factory CrateDownloads.fromJson(Map<String, dynamic> json) =>
@@ -23,14 +23,15 @@ class CrateDownloads {
 }
 
 @JsonSerializable()
-class Meta {
-  Meta({
+class DownloadsMeta {
+  DownloadsMeta({
     required this.extra_downloads,
   });
 
   List<ExtraDownload> extra_downloads;
 
-  factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
+  factory DownloadsMeta.fromJson(Map<String, dynamic> json) =>
+      _$MetaFromJson(json);
 
   Map<String, dynamic> toJson() => _$MetaToJson(this);
 }

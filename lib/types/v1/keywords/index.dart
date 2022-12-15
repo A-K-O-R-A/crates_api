@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:json_annotation/json_annotation.dart';
 
 part 'index.g.dart';
@@ -10,7 +12,7 @@ class Keywords {
   });
 
   List<Keyword> keywords;
-  Meta meta;
+  KeywordMeta meta;
 
   factory Keywords.fromJson(Map<String, dynamic> json) =>
       _$KeywordsFromJson(json);
@@ -39,14 +41,15 @@ class Keyword {
 }
 
 @JsonSerializable()
-class Meta {
-  Meta({
+class KeywordMeta {
+  KeywordMeta({
     required this.total,
   });
 
   int total;
 
-  factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
+  factory KeywordMeta.fromJson(Map<String, dynamic> json) =>
+      _$MetaFromJson(json);
 
   Map<String, dynamic> toJson() => _$MetaToJson(this);
 }

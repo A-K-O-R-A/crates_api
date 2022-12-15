@@ -8,7 +8,7 @@ part of 'downloads.dart';
 
 CrateDownloads _$CrateDownloadsFromJson(Map<String, dynamic> json) =>
     CrateDownloads(
-      meta: Meta.fromJson(json['meta'] as Map<String, dynamic>),
+      meta: DownloadsMeta.fromJson(json['meta'] as Map<String, dynamic>),
       version_downloads: (json['version_downloads'] as List<dynamic>)
           .map((e) => VersionDownload.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -20,13 +20,13 @@ Map<String, dynamic> _$CrateDownloadsToJson(CrateDownloads instance) =>
       'version_downloads': instance.version_downloads,
     };
 
-Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
+DownloadsMeta _$MetaFromJson(Map<String, dynamic> json) => DownloadsMeta(
       extra_downloads: (json['extra_downloads'] as List<dynamic>)
           .map((e) => ExtraDownload.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$MetaToJson(Meta instance) => <String, dynamic>{
+Map<String, dynamic> _$MetaToJson(DownloadsMeta instance) => <String, dynamic>{
       'extra_downloads': instance.extra_downloads,
     };
 

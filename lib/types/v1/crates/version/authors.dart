@@ -9,7 +9,7 @@ class Authors {
     required this.users,
   });
 
-  final Meta meta;
+  final AuthorMeta meta;
   final List<dynamic> users;
 
   factory Authors.fromJson(Map<String, dynamic> json) =>
@@ -19,14 +19,15 @@ class Authors {
 }
 
 @JsonSerializable()
-class Meta {
-  Meta({
+class AuthorMeta {
+  AuthorMeta({
     required this.names,
   });
 
   final List<String> names;
 
-  factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
+  factory AuthorMeta.fromJson(Map<String, dynamic> json) =>
+      _$MetaFromJson(json);
 
   Map<String, dynamic> toJson() => _$MetaToJson(this);
 }

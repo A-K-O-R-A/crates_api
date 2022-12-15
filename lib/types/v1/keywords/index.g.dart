@@ -10,7 +10,7 @@ Keywords _$KeywordsFromJson(Map<String, dynamic> json) => Keywords(
       keywords: (json['keywords'] as List<dynamic>)
           .map((e) => Keyword.fromJson(e as Map<String, dynamic>))
           .toList(),
-      meta: Meta.fromJson(json['meta'] as Map<String, dynamic>),
+      meta: KeywordMeta.fromJson(json['meta'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$KeywordsToJson(Keywords instance) => <String, dynamic>{
@@ -32,10 +32,10 @@ Map<String, dynamic> _$KeywordToJson(Keyword instance) => <String, dynamic>{
       'keyword': instance.keyword,
     };
 
-Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
+KeywordMeta _$MetaFromJson(Map<String, dynamic> json) => KeywordMeta(
       total: json['total'] as int,
     );
 
-Map<String, dynamic> _$MetaToJson(Meta instance) => <String, dynamic>{
+Map<String, dynamic> _$MetaToJson(KeywordMeta instance) => <String, dynamic>{
       'total': instance.total,
     };

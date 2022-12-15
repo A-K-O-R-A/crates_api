@@ -1,18 +1,5 @@
-import 'package:crates_api/types/v1/categories/index.dart';
-import 'package:crates_api/types/v1/categories/show.dart';
-import 'package:crates_api/types/v1/categories/slugs.dart';
-import 'package:crates_api/types/v1/crates/downloads.dart';
-import 'package:crates_api/types/v1/crates/version/authors.dart';
-import 'package:crates_api/types/v1/crates/version/dependencies.dart';
-import 'package:crates_api/types/v1/crates/version/downloads.dart';
-import 'package:crates_api/types/v1/crates/version/version.dart';
-import 'package:crates_api/types/v1/crates/metadata.dart';
-import 'package:crates_api/base.dart';
-import 'package:crates_api/types/v1/keywords/index.dart';
-import 'package:crates_api/types/v1/keywords/show.dart';
-import 'package:crates_api/types/v1/teams/show.dart';
-import 'package:crates_api/types/v1/users/show.dart';
-import 'package:crates_api/types/v1/users/stats.dart';
+import 'types/v1/export.dart';
+import 'base.dart';
 
 class CratesAPI extends BaseCratesAPI {
   CrateR crate(String crate) {
