@@ -30,10 +30,8 @@ Map<String, dynamic> _$CrateMetadataToJson(CrateMetadata instance) =>
 
 Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
       category: json['category'] as String,
-      cratesCnt: json['cratesCnt'] as int?,
-      createdAt: json['createdAt'] == null
-          ? null
-          : DateTime.parse(json['createdAt'] as String),
+      crates_cnt: json['crates_cnt'] as int,
+      created_at: DateTime.parse(json['created_at'] as String),
       description: json['description'] as String,
       id: json['id'] as String,
       slug: json['slug'] as String,
@@ -41,8 +39,8 @@ Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
 
 Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
       'category': instance.category,
-      'cratesCnt': instance.cratesCnt,
-      'createdAt': instance.createdAt?.toIso8601String(),
+      'crates_cnt': instance.crates_cnt,
+      'created_at': instance.created_at.toIso8601String(),
       'description': instance.description,
       'id': instance.id,
       'slug': instance.slug,
@@ -53,27 +51,23 @@ Crate _$CrateFromJson(Map<String, dynamic> json) => Crate(
       categories: (json['categories'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
-      createdAt: json['createdAt'] == null
-          ? null
-          : DateTime.parse(json['createdAt'] as String),
+      created_at: DateTime.parse(json['created_at'] as String),
       description: json['description'] as String,
-      documentation: json['documentation'] as String,
+      documentation: json['documentation'] as String?,
       downloads: json['downloads'] as int,
-      exactMatch: json['exactMatch'] as bool?,
+      exact_match: json['exact_match'] as bool,
       homepage: json['homepage'],
       id: json['id'] as String,
       keywords:
           (json['keywords'] as List<dynamic>).map((e) => e as String).toList(),
       links: CrateLinks.fromJson(json['links'] as Map<String, dynamic>),
-      maxStableVersion: json['maxStableVersion'] as String?,
-      maxVersion: json['maxVersion'] as String?,
+      max_stable_version: json['max_stable_version'] as String,
+      max_version: json['max_version'] as String,
       name: json['name'] as String,
-      newestVersion: json['newestVersion'] as String?,
-      recentDownloads: json['recentDownloads'] as int?,
+      newest_version: json['newest_version'] as String,
+      recent_downloads: json['recent_downloads'] as int,
       repository: json['repository'] as String,
-      updatedAt: json['updatedAt'] == null
-          ? null
-          : DateTime.parse(json['updatedAt'] as String),
+      updated_at: DateTime.parse(json['updated_at'] as String),
       versions:
           (json['versions'] as List<dynamic>).map((e) => e as int).toList(),
     );
@@ -81,56 +75,54 @@ Crate _$CrateFromJson(Map<String, dynamic> json) => Crate(
 Map<String, dynamic> _$CrateToJson(Crate instance) => <String, dynamic>{
       'badges': instance.badges,
       'categories': instance.categories,
-      'createdAt': instance.createdAt?.toIso8601String(),
+      'created_at': instance.created_at.toIso8601String(),
       'description': instance.description,
       'documentation': instance.documentation,
       'downloads': instance.downloads,
-      'exactMatch': instance.exactMatch,
+      'exact_match': instance.exact_match,
       'homepage': instance.homepage,
       'id': instance.id,
       'keywords': instance.keywords,
       'links': instance.links,
-      'maxStableVersion': instance.maxStableVersion,
-      'maxVersion': instance.maxVersion,
+      'max_stable_version': instance.max_stable_version,
+      'max_version': instance.max_version,
       'name': instance.name,
-      'newestVersion': instance.newestVersion,
-      'recentDownloads': instance.recentDownloads,
+      'newest_version': instance.newest_version,
+      'recent_downloads': instance.recent_downloads,
       'repository': instance.repository,
-      'updatedAt': instance.updatedAt?.toIso8601String(),
+      'updated_at': instance.updated_at.toIso8601String(),
       'versions': instance.versions,
     };
 
 CrateLinks _$CrateLinksFromJson(Map<String, dynamic> json) => CrateLinks(
-      ownerTeam: json['ownerTeam'] as String?,
-      ownerUser: json['ownerUser'] as String?,
+      owner_team: json['owner_team'] as String,
+      owner_user: json['owner_user'] as String,
       owners: json['owners'] as String,
-      reverseDependencies: json['reverseDependencies'] as String?,
-      versionDownloads: json['versionDownloads'] as String?,
+      reverse_dependencies: json['reverse_dependencies'] as String,
+      version_downloads: json['version_downloads'] as String,
       versions: json['versions'],
     );
 
 Map<String, dynamic> _$CrateLinksToJson(CrateLinks instance) =>
     <String, dynamic>{
-      'ownerTeam': instance.ownerTeam,
-      'ownerUser': instance.ownerUser,
+      'owner_team': instance.owner_team,
+      'owner_user': instance.owner_user,
       'owners': instance.owners,
-      'reverseDependencies': instance.reverseDependencies,
-      'versionDownloads': instance.versionDownloads,
+      'reverse_dependencies': instance.reverse_dependencies,
+      'version_downloads': instance.version_downloads,
       'versions': instance.versions,
     };
 
 Keyword _$KeywordFromJson(Map<String, dynamic> json) => Keyword(
-      cratesCnt: json['cratesCnt'] as int?,
-      createdAt: json['createdAt'] == null
-          ? null
-          : DateTime.parse(json['createdAt'] as String),
+      crates_cnt: json['crates_cnt'] as int,
+      created_at: DateTime.parse(json['created_at'] as String),
       id: json['id'] as String,
       keyword: json['keyword'] as String,
     );
 
 Map<String, dynamic> _$KeywordToJson(Keyword instance) => <String, dynamic>{
-      'cratesCnt': instance.cratesCnt,
-      'createdAt': instance.createdAt?.toIso8601String(),
+      'crates_cnt': instance.crates_cnt,
+      'created_at': instance.created_at.toIso8601String(),
       'id': instance.id,
       'keyword': instance.keyword,
     };

@@ -15,18 +15,18 @@ class BaseCratesAPI {
     apiRoot = apiRoot;
   }
 
-  http.Client _client() {
+  http.Client createClient() {
     return http.Client();
   }
 
-  Uri _uri(String apiPath) {
+  Uri getURI(String apiPath) {
     return Uri.http(registry, '$apiRoot/$apiPath');
   }
 
   Future<dynamic> getJSON(String path) async {
-    var client = _client();
+    var client = createClient();
     try {
-      var response = await client.get(_uri(path));
+      var response = await client.get(getURI(path));
 
       var json = jsonDecode(response.body);
 

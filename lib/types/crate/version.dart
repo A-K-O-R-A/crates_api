@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:json_annotation/json_annotation.dart';
 
 part 'version.g.dart';
@@ -17,39 +19,39 @@ class VersionEndpoint {
 @JsonSerializable()
 class Version {
   Version({
-    this.auditActions,
+    required this.audit_actions,
     required this.checksum,
     required this.crate,
-    this.crateSize,
-    this.createdAt,
-    this.dlPath,
+    this.crate_size,
+    required this.created_at,
+    required this.dl_path,
     required this.downloads,
     required this.features,
     required this.id,
     required this.license,
     required this.links,
     required this.num,
-    this.publishedBy,
-    this.readmePath,
-    this.updatedAt,
+    this.published_by,
+    required this.readme_path,
+    required this.updated_at,
     required this.yanked,
   });
 
-  final List<AuditAction>? auditActions;
+  final List<AuditAction> audit_actions;
   final String checksum;
   final String crate;
-  final int? crateSize;
-  final DateTime? createdAt;
-  final String? dlPath;
+  final int? crate_size;
+  final DateTime created_at;
+  final String dl_path;
   final int downloads;
   final Map<String, List<String>> features;
   final int id;
   final String license;
   final VersionLinks links;
   final String num;
-  final PublishedBy? publishedBy;
-  final String? readmePath;
-  final DateTime? updatedAt;
+  final PublishedBy? published_by;
+  final String readme_path;
+  final DateTime updated_at;
   final bool yanked;
 
   factory Version.fromJson(Map<String, dynamic> json) =>
@@ -77,7 +79,7 @@ class AuditAction {
 }
 
 @JsonEnum()
-enum Action { PUBLISH }
+enum Action { publish }
 
 @JsonSerializable()
 class PublishedBy {
@@ -114,12 +116,12 @@ class VersionLinks {
   VersionLinks({
     required this.authors,
     required this.dependencies,
-    this.versionDownloads,
+    required this.version_downloads,
   });
 
   final String authors;
   final String dependencies;
-  final String? versionDownloads;
+  final String version_downloads;
 
   factory VersionLinks.fromJson(Map<String, dynamic> json) =>
       _$VersionLinksFromJson(json);

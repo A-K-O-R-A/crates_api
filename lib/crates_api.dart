@@ -1,6 +1,8 @@
-import 'package:crates_api/types/crate_metadata.dart';
+import 'package:crates_api/types/crate/authors.dart';
+import 'package:crates_api/types/crate/dependencies.dart';
+import 'package:crates_api/types/crate/metadata.dart';
+import 'package:crates_api/types/crate/version.dart';
 import 'package:crates_api/base.dart';
-import 'package:crates_api/types/version.dart';
 
 class CratesAPI extends BaseCratesAPI {
   CrateR crate(String crate) {
@@ -36,22 +38,43 @@ class CrateVersionR extends BaseCratesAPI {
     this.apiRoot = apiRoot;
   }
 
-  Future<VersionEndpoint> metadata() async {
+  Future<Version> metadata() async {
     var json = await getJSON('/crates/$crate/$version');
 
-    return VersionEndpoint.fromJson(json);
+    return VersionEndpoint.fromJson(json).version;
   }
 
-  Future<VersionEndpoint> authors() async {
-    var json = await getJSON('/crates/$crate/$version/authors');
+  //Returns the raw HTML content of the readme
+  Future<String?> readme() async {
+    var client = createClient();
+    try {
+      var response = await client.get(getURI('/crates/$crate/$version/readme'));
 
-    return VersionEndpoint.fromJson(json);
+      if (response.statusCode == 200) {
+        return response.body;
+      } else if (response.statusCode == 302) {
+        var staticURI = Uri.parse(response.headers['location']!);
+
+        var secResponse = await client.get(staticURI);
+        return secResponse.body;
+      } else {
+        return null;
+      }
+    } finally {
+      client.close();
+    }
   }
 
-  Future<VersionEndpoint> dependencies() async {
+  Future<Authors> authors() async {
     var json = await getJSON('/crates/$crate/$version/authors');
 
-    return VersionEndpoint.fromJson(json);
+    return Authors.fromJson(json);
+  }
+
+  Future<List<Dependency>> dependencies() async {
+    var json = await getJSON('/crates/$crate/$version/dependencies');
+
+    return Dependencies.fromJson(json).dependencies;
   }
 
   Future<VersionEndpoint> downloads() async {

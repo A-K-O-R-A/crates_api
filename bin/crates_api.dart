@@ -3,10 +3,16 @@ import 'package:crates_api/crates_api.dart' as crates_api;
 void main(List<String> arguments) async {
   var api = crates_api.CratesAPI();
 
-  var crate_r = api.crate("anyhow");
-  var metadata = await crate_r.metadata();
-  var version = await crate_r.version("1.0.0");
+  var crateR = api.crate("diesel");
+  var metadata = await crateR.metadata();
+
+  var versionR = crateR.version("2.0.2");
+  var versionMetadata = await versionR.metadata();
+  // ignore: unused_local_variable
+  var readme = await versionR.readme();
+  var deps = await versionR.dependencies();
 
   print(metadata.crate.categories);
-  print(version.version.checksum);
+  print(versionMetadata.checksum);
+  print(deps[0].crate_id);
 }

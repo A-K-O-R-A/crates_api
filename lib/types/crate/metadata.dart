@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:json_annotation/json_annotation.dart';
 
 import 'version.dart';
@@ -28,16 +30,16 @@ class CrateMetadata {
 class Category {
   Category({
     required this.category,
-    this.cratesCnt,
-    this.createdAt,
+    required this.crates_cnt,
+    required this.created_at,
     required this.description,
     required this.id,
     required this.slug,
   });
 
   final String category;
-  final int? cratesCnt;
-  final DateTime? createdAt;
+  final int crates_cnt;
+  final DateTime created_at;
   final String description;
   final String id;
   final String slug;
@@ -53,43 +55,43 @@ class Crate {
   Crate({
     required this.badges,
     required this.categories,
-    this.createdAt,
+    required this.created_at,
     required this.description,
-    required this.documentation,
+    this.documentation,
     required this.downloads,
-    this.exactMatch,
+    required this.exact_match,
     required this.homepage,
     required this.id,
     required this.keywords,
     required this.links,
-    this.maxStableVersion,
-    this.maxVersion,
+    required this.max_stable_version,
+    required this.max_version,
     required this.name,
-    this.newestVersion,
-    this.recentDownloads,
+    required this.newest_version,
+    required this.recent_downloads,
     required this.repository,
-    this.updatedAt,
+    required this.updated_at,
     required this.versions,
   });
 
   final List<dynamic> badges;
   final List<String> categories;
-  final DateTime? createdAt;
+  final DateTime created_at;
   final String description;
-  final String documentation;
+  final String? documentation;
   final int downloads;
-  final bool? exactMatch;
+  final bool exact_match;
   final dynamic homepage;
   final String id;
   final List<String> keywords;
   final CrateLinks links;
-  final String? maxStableVersion;
-  final String? maxVersion;
+  final String max_stable_version;
+  final String max_version;
   final String name;
-  final String? newestVersion;
-  final int? recentDownloads;
+  final String newest_version;
+  final int recent_downloads;
   final String repository;
-  final DateTime? updatedAt;
+  final DateTime updated_at;
   final List<int> versions;
 
   factory Crate.fromJson(Map<String, dynamic> json) => _$CrateFromJson(json);
@@ -100,19 +102,19 @@ class Crate {
 @JsonSerializable()
 class CrateLinks {
   CrateLinks({
-    this.ownerTeam,
-    this.ownerUser,
+    required this.owner_team,
+    required this.owner_user,
     required this.owners,
-    this.reverseDependencies,
-    this.versionDownloads,
+    required this.reverse_dependencies,
+    required this.version_downloads,
     required this.versions,
   });
 
-  final String? ownerTeam;
-  final String? ownerUser;
+  final String owner_team;
+  final String owner_user;
   final String owners;
-  final String? reverseDependencies;
-  final String? versionDownloads;
+  final String reverse_dependencies;
+  final String version_downloads;
   final dynamic versions;
 
   factory CrateLinks.fromJson(Map<String, dynamic> json) =>
@@ -124,14 +126,14 @@ class CrateLinks {
 @JsonSerializable()
 class Keyword {
   Keyword({
-    this.cratesCnt,
-    this.createdAt,
+    required this.crates_cnt,
+    required this.created_at,
     required this.id,
     required this.keyword,
   });
 
-  final int? cratesCnt;
-  final DateTime? createdAt;
+  final int crates_cnt;
+  final DateTime created_at;
   final String id;
   final String keyword;
 

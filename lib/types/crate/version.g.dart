@@ -17,16 +17,14 @@ Map<String, dynamic> _$VersionEndpointToJson(VersionEndpoint instance) =>
     };
 
 Version _$VersionFromJson(Map<String, dynamic> json) => Version(
-      auditActions: (json['auditActions'] as List<dynamic>?)
-          ?.map((e) => AuditAction.fromJson(e as Map<String, dynamic>))
+      audit_actions: (json['audit_actions'] as List<dynamic>)
+          .map((e) => AuditAction.fromJson(e as Map<String, dynamic>))
           .toList(),
       checksum: json['checksum'] as String,
       crate: json['crate'] as String,
-      crateSize: json['crateSize'] as int?,
-      createdAt: json['createdAt'] == null
-          ? null
-          : DateTime.parse(json['createdAt'] as String),
-      dlPath: json['dlPath'] as String?,
+      crate_size: json['crate_size'] as int?,
+      created_at: DateTime.parse(json['created_at'] as String),
+      dl_path: json['dl_path'] as String,
       downloads: json['downloads'] as int,
       features: (json['features'] as Map<String, dynamic>).map(
         (k, e) =>
@@ -36,32 +34,30 @@ Version _$VersionFromJson(Map<String, dynamic> json) => Version(
       license: json['license'] as String,
       links: VersionLinks.fromJson(json['links'] as Map<String, dynamic>),
       num: json['num'] as String,
-      publishedBy: json['publishedBy'] == null
+      published_by: json['published_by'] == null
           ? null
-          : PublishedBy.fromJson(json['publishedBy'] as Map<String, dynamic>),
-      readmePath: json['readmePath'] as String?,
-      updatedAt: json['updatedAt'] == null
-          ? null
-          : DateTime.parse(json['updatedAt'] as String),
+          : PublishedBy.fromJson(json['published_by'] as Map<String, dynamic>),
+      readme_path: json['readme_path'] as String,
+      updated_at: DateTime.parse(json['updated_at'] as String),
       yanked: json['yanked'] as bool,
     );
 
 Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
-      'auditActions': instance.auditActions,
+      'audit_actions': instance.audit_actions,
       'checksum': instance.checksum,
       'crate': instance.crate,
-      'crateSize': instance.crateSize,
-      'createdAt': instance.createdAt?.toIso8601String(),
-      'dlPath': instance.dlPath,
+      'crate_size': instance.crate_size,
+      'created_at': instance.created_at.toIso8601String(),
+      'dl_path': instance.dl_path,
       'downloads': instance.downloads,
       'features': instance.features,
       'id': instance.id,
       'license': instance.license,
       'links': instance.links,
       'num': instance.num,
-      'publishedBy': instance.publishedBy,
-      'readmePath': instance.readmePath,
-      'updatedAt': instance.updatedAt?.toIso8601String(),
+      'published_by': instance.published_by,
+      'readme_path': instance.readme_path,
+      'updated_at': instance.updated_at.toIso8601String(),
       'yanked': instance.yanked,
     };
 
@@ -79,7 +75,7 @@ Map<String, dynamic> _$AuditActionToJson(AuditAction instance) =>
     };
 
 const _$ActionEnumMap = {
-  Action.PUBLISH: 'PUBLISH',
+  Action.publish: 'publish',
 };
 
 PublishedBy _$PublishedByFromJson(Map<String, dynamic> json) => PublishedBy(
@@ -102,12 +98,12 @@ Map<String, dynamic> _$PublishedByToJson(PublishedBy instance) =>
 VersionLinks _$VersionLinksFromJson(Map<String, dynamic> json) => VersionLinks(
       authors: json['authors'] as String,
       dependencies: json['dependencies'] as String,
-      versionDownloads: json['versionDownloads'] as String?,
+      version_downloads: json['version_downloads'] as String,
     );
 
 Map<String, dynamic> _$VersionLinksToJson(VersionLinks instance) =>
     <String, dynamic>{
       'authors': instance.authors,
       'dependencies': instance.dependencies,
-      'versionDownloads': instance.versionDownloads,
+      'version_downloads': instance.version_downloads,
     };
