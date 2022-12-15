@@ -1,15 +1,16 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:json_annotation/json_annotation.dart';
-import 'index.dart';
 
 part 'slugs.g.dart';
 
 @JsonSerializable()
 class CategorySlugs {
   CategorySlugs({
-    required this.categorySlugs,
+    required this.category_slugs,
   });
 
-  List<CategorySlug> categorySlugs;
+  List<CategorySlug> category_slugs;
 
   factory CategorySlugs.fromJson(Map<String, dynamic> json) =>
       _$CategorySlugsFromJson(json);

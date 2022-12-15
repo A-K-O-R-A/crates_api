@@ -191,7 +191,7 @@ class OwnerUsers {
     required this.users,
   });
 
-  List<User> users;
+  List<MetadataUser> users;
 
   factory OwnerUsers.fromJson(Map<String, dynamic> json) =>
       _$OwnerUsersFromJson(json);
@@ -200,8 +200,8 @@ class OwnerUsers {
 }
 
 @JsonSerializable()
-class User {
-  User({
+class MetadataUser {
+  MetadataUser({
     required this.avatar,
     required this.id,
     required this.kind,
@@ -217,7 +217,8 @@ class User {
   String name;
   String url;
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  factory MetadataUser.fromJson(Map<String, dynamic> json) =>
+      _$MetadataUserFromJson(json);
 
-  Map<String, dynamic> toJson() => _$UserToJson(this);
+  Map<String, dynamic> toJson() => _$MetadataUserToJson(this);
 }

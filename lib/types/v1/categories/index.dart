@@ -5,11 +5,11 @@ part 'index.g.dart';
 @JsonSerializable()
 class Categories {
   Categories({
-    required this.keywords,
+    required this.categories,
     required this.meta,
   });
 
-  List<Category> keywords;
+  List<Category> categories;
   Meta meta;
 
   factory Categories.fromJson(Map<String, dynamic> json) =>

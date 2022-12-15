@@ -8,14 +8,14 @@ part of 'slugs.dart';
 
 CategorySlugs _$CategorySlugsFromJson(Map<String, dynamic> json) =>
     CategorySlugs(
-      categorySlugs: (json['categorySlugs'] as List<dynamic>)
+      category_slugs: (json['category_slugs'] as List<dynamic>)
           .map((e) => CategorySlug.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$CategorySlugsToJson(CategorySlugs instance) =>
     <String, dynamic>{
-      'categorySlugs': instance.categorySlugs,
+      'category_slugs': instance.category_slugs,
     };
 
 CategorySlug _$CategorySlugFromJson(Map<String, dynamic> json) => CategorySlug(

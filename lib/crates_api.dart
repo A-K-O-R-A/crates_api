@@ -10,6 +10,8 @@ import 'package:crates_api/types/v1/crate/metadata.dart';
 import 'package:crates_api/base.dart';
 import 'package:crates_api/types/v1/keywords/index.dart';
 import 'package:crates_api/types/v1/keywords/show.dart';
+import 'package:crates_api/types/v1/user/show.dart';
+import 'package:crates_api/types/v1/user/stats.dart';
 
 class CratesAPI extends BaseCratesAPI {
   CrateR crate(String crate) {
@@ -34,16 +36,28 @@ class CratesAPI extends BaseCratesAPI {
     return Categories.fromJson(json);
   }
 
-  Future<DetailedCategory> category(String keyword) async {
-    var json = await getJSON('/categories/$keyword');
+  Future<DetailedCategory> category(String categoryId) async {
+    var json = await getJSON('/categories/$categoryId');
 
     return ShowCategory.fromJson(json).category;
   }
 
   Future<List<CategorySlug>> categorySlugs() async {
-    var json = await getJSON('/categories/$keyword');
+    var json = await getJSON('/category_slugs');
 
-    return CategorySlugs.fromJson(json).categorySlugs;
+    return CategorySlugs.fromJson(json).category_slugs;
+  }
+
+  Future<User> user(String login) async {
+    var json = await getJSON('/users/$login');
+
+    return ShowUser.fromJson(json).user;
+  }
+
+  Future<UserStats> userStats(int userId) async {
+    var json = await getJSON('/users/$userId/stats');
+
+    return UserStats.fromJson(json);
   }
 }
 
@@ -95,7 +109,7 @@ class CrateR extends BaseCratesAPI {
     return OwnerTeams.fromJson(json).teams;
   }
 
-  Future<List<User>> ownerUser() async {
+  Future<List<MetadataUser>> ownerUser() async {
     var json = await getJSON('/crates/$crate/owner_user');
 
     return OwnerUsers.fromJson(json).users;

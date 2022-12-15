@@ -10,7 +10,8 @@ void main(List<String> arguments) async {
   //var following = await crateR.following();
   await crateR.reverseDependencies();
   await crateR.ownerTeam();
-  await crateR.ownerUser();
+  var users = await crateR.ownerUser();
+  print(users[0].login);
 
   print(metadata.crate.categories);
   print(crateDownloads.meta.extra_downloads.length);
@@ -29,4 +30,11 @@ void main(List<String> arguments) async {
 
   await api.keywords();
   await api.keyword("12b");
+
+  await api.categories();
+  await api.category("accessibility");
+  await api.categorySlugs();
+
+  await api.user("killercup");
+  await api.userStats(58);
 }

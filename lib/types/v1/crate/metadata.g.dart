@@ -166,7 +166,7 @@ Map<String, dynamic> _$TeamToJson(Team instance) => <String, dynamic>{
 
 OwnerUsers _$OwnerUsersFromJson(Map<String, dynamic> json) => OwnerUsers(
       users: (json['users'] as List<dynamic>)
-          .map((e) => User.fromJson(e as Map<String, dynamic>))
+          .map((e) => MetadataUser.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -175,7 +175,7 @@ Map<String, dynamic> _$OwnerUsersToJson(OwnerUsers instance) =>
       'users': instance.users,
     };
 
-User _$UserFromJson(Map<String, dynamic> json) => User(
+MetadataUser _$MetadataUserFromJson(Map<String, dynamic> json) => MetadataUser(
       avatar: json['avatar'] as String,
       id: json['id'] as int,
       kind: json['kind'] as String,
@@ -184,7 +184,8 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       url: json['url'] as String,
     );
 
-Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
+Map<String, dynamic> _$MetadataUserToJson(MetadataUser instance) =>
+    <String, dynamic>{
       'avatar': instance.avatar,
       'id': instance.id,
       'kind': instance.kind,

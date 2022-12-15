@@ -7,7 +7,7 @@ part of 'index.dart';
 // **************************************************************************
 
 Categories _$CategoriesFromJson(Map<String, dynamic> json) => Categories(
-      keywords: (json['keywords'] as List<dynamic>)
+      categories: (json['categories'] as List<dynamic>)
           .map((e) => Category.fromJson(e as Map<String, dynamic>))
           .toList(),
       meta: Meta.fromJson(json['meta'] as Map<String, dynamic>),
@@ -15,7 +15,7 @@ Categories _$CategoriesFromJson(Map<String, dynamic> json) => Categories(
 
 Map<String, dynamic> _$CategoriesToJson(Categories instance) =>
     <String, dynamic>{
-      'keywords': instance.keywords,
+      'categories': instance.categories,
       'meta': instance.meta,
     };
 
