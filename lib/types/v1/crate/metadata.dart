@@ -5,6 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import 'version/version.dart';
 import '../keywords/index.dart';
+import '../categories/index.dart';
 
 part 'metadata.g.dart';
 
@@ -26,30 +27,6 @@ class CrateMetadata {
       _$CrateMetadataFromJson(json);
 
   Map<String, dynamic> toJson() => _$CrateMetadataToJson(this);
-}
-
-@JsonSerializable()
-class Category {
-  Category({
-    required this.category,
-    required this.crates_cnt,
-    required this.created_at,
-    required this.description,
-    required this.id,
-    required this.slug,
-  });
-
-  final String category;
-  final int crates_cnt;
-  final DateTime created_at;
-  final String description;
-  final String id;
-  final String slug;
-
-  factory Category.fromJson(Map<String, dynamic> json) =>
-      _$CategoryFromJson(json);
-
-  Map<String, dynamic> toJson() => _$CategoryToJson(this);
 }
 
 @JsonSerializable()

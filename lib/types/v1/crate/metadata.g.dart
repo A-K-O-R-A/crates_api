@@ -28,24 +28,6 @@ Map<String, dynamic> _$CrateMetadataToJson(CrateMetadata instance) =>
       'versions': instance.versions,
     };
 
-Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
-      category: json['category'] as String,
-      crates_cnt: json['crates_cnt'] as int,
-      created_at: DateTime.parse(json['created_at'] as String),
-      description: json['description'] as String,
-      id: json['id'] as String,
-      slug: json['slug'] as String,
-    );
-
-Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
-      'category': instance.category,
-      'crates_cnt': instance.crates_cnt,
-      'created_at': instance.created_at.toIso8601String(),
-      'description': instance.description,
-      'id': instance.id,
-      'slug': instance.slug,
-    };
-
 Crate _$CrateFromJson(Map<String, dynamic> json) => Crate(
       badges: json['badges'] as List<dynamic>,
       categories: (json['categories'] as List<dynamic>)

@@ -1,3 +1,6 @@
+import 'package:crates_api/types/v1/categories/index.dart';
+import 'package:crates_api/types/v1/categories/show.dart';
+import 'package:crates_api/types/v1/categories/slugs.dart';
 import 'package:crates_api/types/v1/crate/downloads.dart';
 import 'package:crates_api/types/v1/crate/version/authors.dart';
 import 'package:crates_api/types/v1/crate/version/dependencies.dart';
@@ -23,6 +26,24 @@ class CratesAPI extends BaseCratesAPI {
     var json = await getJSON('/keywords/$keyword');
 
     return ShowKeyword.fromJson(json).keyword;
+  }
+
+  Future<Categories> categories() async {
+    var json = await getJSON('/categories');
+
+    return Categories.fromJson(json);
+  }
+
+  Future<DetailedCategory> category(String keyword) async {
+    var json = await getJSON('/categories/$keyword');
+
+    return ShowCategory.fromJson(json).category;
+  }
+
+  Future<List<CategorySlug>> categorySlugs() async {
+    var json = await getJSON('/categories/$keyword');
+
+    return CategorySlugs.fromJson(json).categorySlugs;
   }
 }
 
