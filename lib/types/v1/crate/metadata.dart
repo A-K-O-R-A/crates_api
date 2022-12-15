@@ -4,6 +4,7 @@ import 'version/dependencies.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'version/version.dart';
+import '../keywords/index.dart';
 
 part 'metadata.g.dart';
 
@@ -122,26 +123,6 @@ class CrateLinks {
       _$CrateLinksFromJson(json);
 
   Map<String, dynamic> toJson() => _$CrateLinksToJson(this);
-}
-
-@JsonSerializable()
-class Keyword {
-  Keyword({
-    required this.crates_cnt,
-    required this.created_at,
-    required this.id,
-    required this.keyword,
-  });
-
-  final int crates_cnt;
-  final DateTime created_at;
-  final String id;
-  final String keyword;
-
-  factory Keyword.fromJson(Map<String, dynamic> json) =>
-      _$KeywordFromJson(json);
-
-  Map<String, dynamic> toJson() => _$KeywordToJson(this);
 }
 
 @JsonSerializable()

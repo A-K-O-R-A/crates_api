@@ -26,4 +26,7 @@ void main(List<String> arguments) async {
   print(versionMetadata.checksum);
   print(deps[0].crate_id);
   print(downloads[0].date);
+
+  await api.keywords();
+  await api.keyword("12b");
 }

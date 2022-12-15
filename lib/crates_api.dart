@@ -5,10 +5,24 @@ import 'package:crates_api/types/v1/crate/version/downloads.dart';
 import 'package:crates_api/types/v1/crate/version/version.dart';
 import 'package:crates_api/types/v1/crate/metadata.dart';
 import 'package:crates_api/base.dart';
+import 'package:crates_api/types/v1/keywords/index.dart';
+import 'package:crates_api/types/v1/keywords/show.dart';
 
 class CratesAPI extends BaseCratesAPI {
   CrateR crate(String crate) {
     return CrateR(crate, registry, apiRoot);
+  }
+
+  Future<Keywords> keywords() async {
+    var json = await getJSON('/keywords');
+
+    return Keywords.fromJson(json);
+  }
+
+  Future<Keyword> keyword(String keyword) async {
+    var json = await getJSON('/keywords/$keyword');
+
+    return ShowKeyword.fromJson(json).keyword;
   }
 }
 

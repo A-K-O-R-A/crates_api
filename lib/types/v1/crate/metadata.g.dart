@@ -113,20 +113,6 @@ Map<String, dynamic> _$CrateLinksToJson(CrateLinks instance) =>
       'versions': instance.versions,
     };
 
-Keyword _$KeywordFromJson(Map<String, dynamic> json) => Keyword(
-      crates_cnt: json['crates_cnt'] as int,
-      created_at: DateTime.parse(json['created_at'] as String),
-      id: json['id'] as String,
-      keyword: json['keyword'] as String,
-    );
-
-Map<String, dynamic> _$KeywordToJson(Keyword instance) => <String, dynamic>{
-      'crates_cnt': instance.crates_cnt,
-      'created_at': instance.created_at.toIso8601String(),
-      'id': instance.id,
-      'keyword': instance.keyword,
-    };
-
 Following _$FollowingFromJson(Map<String, dynamic> json) => Following(
       following: json['following'] as bool,
     );
