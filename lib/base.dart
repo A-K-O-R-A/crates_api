@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:crates_api/types/v1/error.dart';
 import 'package:http/http.dart' as http;
 
 class BaseCratesAPI {
@@ -27,10 +28,16 @@ class BaseCratesAPI {
     var client = createClient();
     try {
       var response = await client.get(getURI(path));
-
       var json = jsonDecode(response.body);
 
-      return json;
+      if (response.statusCode == 200) {
+        return json;
+      } else {
+        var error = APIError.fromJson(json);
+        throw error.toException();
+      }
+    } catch (e) {
+      rethrow;
     } finally {
       client.close();
     }

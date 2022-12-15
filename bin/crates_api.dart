@@ -1,4 +1,5 @@
 import 'package:crates_api/crates_api.dart' as crates_api;
+import 'package:crates_api/types/v1/error.dart';
 
 void main(List<String> arguments) async {
   var api = crates_api.CratesAPI();
@@ -39,5 +40,9 @@ void main(List<String> arguments) async {
   await api.user("killercup");
   await api.userStats(58);
 
-  await api.team("github:diesel-rs:core");
+  try {
+    await api.team("github:diesel-rs:coree");
+  } on APIException catch (e) {
+    print(e.errors.map((e) => e.detail));
+  }
 }
