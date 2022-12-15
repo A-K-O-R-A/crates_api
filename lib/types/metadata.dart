@@ -169,7 +169,7 @@ class Version {
   final int downloads;
   final Map<String, List<String>> features;
   final int id;
-  final License license;
+  final String license;
   final VersionLinks links;
   final String num;
   final PublishedBy? publishedBy;
@@ -216,8 +216,8 @@ class PublishedBy {
 
   final String avatar;
   final int id;
-  final Login login;
-  final Name name;
+  final String login;
+  final String name;
   final String url;
 
   factory PublishedBy.fromJson(Map<String, dynamic> json) =>
@@ -226,17 +226,13 @@ class PublishedBy {
   Map<String, dynamic> toJson() => _$PublishedByToJson(this);
 }
 
-@JsonEnum()
-enum Login { SEANMONSTAR }
-
-@JsonEnum()
-enum Name { SEAN_MC_ARTHUR }
-
+/*
 @JsonEnum()
 enum License {
   @JsonValue("MIT/Apache-2.0")
   mitApache20
 }
+*/
 
 @JsonSerializable()
 class VersionLinks {

@@ -150,7 +150,7 @@ Version _$VersionFromJson(Map<String, dynamic> json) => Version(
             MapEntry(k, (e as List<dynamic>).map((e) => e as String).toList()),
       ),
       id: json['id'] as int,
-      license: $enumDecode(_$LicenseEnumMap, json['license']),
+      license: json['license'] as String,
       links: VersionLinks.fromJson(json['links'] as Map<String, dynamic>),
       num: json['num'] as String,
       publishedBy: json['publishedBy'] == null
@@ -173,7 +173,7 @@ Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
       'downloads': instance.downloads,
       'features': instance.features,
       'id': instance.id,
-      'license': _$LicenseEnumMap[instance.license]!,
+      'license': instance.license,
       'links': instance.links,
       'num': instance.num,
       'publishedBy': instance.publishedBy,
@@ -181,10 +181,6 @@ Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
       'updatedAt': instance.updatedAt?.toIso8601String(),
       'yanked': instance.yanked,
     };
-
-const _$LicenseEnumMap = {
-  License.mitApache20: 'MIT/Apache-2.0',
-};
 
 AuditAction _$AuditActionFromJson(Map<String, dynamic> json) => AuditAction(
       action: $enumDecode(_$ActionEnumMap, json['action']),
@@ -206,8 +202,8 @@ const _$ActionEnumMap = {
 PublishedBy _$PublishedByFromJson(Map<String, dynamic> json) => PublishedBy(
       avatar: json['avatar'] as String,
       id: json['id'] as int,
-      login: $enumDecode(_$LoginEnumMap, json['login']),
-      name: $enumDecode(_$NameEnumMap, json['name']),
+      login: json['login'] as String,
+      name: json['name'] as String,
       url: json['url'] as String,
     );
 
@@ -215,18 +211,10 @@ Map<String, dynamic> _$PublishedByToJson(PublishedBy instance) =>
     <String, dynamic>{
       'avatar': instance.avatar,
       'id': instance.id,
-      'login': _$LoginEnumMap[instance.login]!,
-      'name': _$NameEnumMap[instance.name]!,
+      'login': instance.login,
+      'name': instance.name,
       'url': instance.url,
     };
-
-const _$LoginEnumMap = {
-  Login.SEANMONSTAR: 'SEANMONSTAR',
-};
-
-const _$NameEnumMap = {
-  Name.SEAN_MC_ARTHUR: 'SEAN_MC_ARTHUR',
-};
 
 VersionLinks _$VersionLinksFromJson(Map<String, dynamic> json) => VersionLinks(
       authors: json['authors'] as String,
