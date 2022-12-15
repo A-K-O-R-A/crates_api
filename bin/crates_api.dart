@@ -9,7 +9,8 @@ void main(List<String> arguments) async {
   var crateVersions = await crateR.versions();
   //var following = await crateR.following();
   await crateR.reverseDependencies();
-  await crateR.ownerTeam();
+  var teams = await crateR.ownerTeam();
+  print(teams[0].login);
   var users = await crateR.ownerUser();
   print(users[0].login);
 
@@ -37,4 +38,6 @@ void main(List<String> arguments) async {
 
   await api.user("killercup");
   await api.userStats(58);
+
+  await api.team("github:diesel-rs:core");
 }

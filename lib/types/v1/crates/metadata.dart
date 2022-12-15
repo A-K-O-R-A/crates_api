@@ -154,7 +154,7 @@ class OwnerTeams {
     required this.teams,
   });
 
-  List<Team> teams;
+  List<MetadataTeam> teams;
 
   factory OwnerTeams.fromJson(Map<String, dynamic> json) =>
       _$OwnerTeamsFromJson(json);
@@ -163,8 +163,8 @@ class OwnerTeams {
 }
 
 @JsonSerializable()
-class Team {
-  Team({
+class MetadataTeam {
+  MetadataTeam({
     required this.avatar,
     required this.id,
     required this.kind,
@@ -180,9 +180,10 @@ class Team {
   String name;
   String url;
 
-  factory Team.fromJson(Map<String, dynamic> json) => _$TeamFromJson(json);
+  factory MetadataTeam.fromJson(Map<String, dynamic> json) =>
+      _$MetadataTeamFromJson(json);
 
-  Map<String, dynamic> toJson() => _$TeamToJson(this);
+  Map<String, dynamic> toJson() => _$MetadataTeamToJson(this);
 }
 
 @JsonSerializable()

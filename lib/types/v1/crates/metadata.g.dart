@@ -137,7 +137,7 @@ Map<String, dynamic> _$ReverseDependenciesMetaToJson(
 
 OwnerTeams _$OwnerTeamsFromJson(Map<String, dynamic> json) => OwnerTeams(
       teams: (json['teams'] as List<dynamic>)
-          .map((e) => Team.fromJson(e as Map<String, dynamic>))
+          .map((e) => MetadataTeam.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -146,7 +146,7 @@ Map<String, dynamic> _$OwnerTeamsToJson(OwnerTeams instance) =>
       'teams': instance.teams,
     };
 
-Team _$TeamFromJson(Map<String, dynamic> json) => Team(
+MetadataTeam _$MetadataTeamFromJson(Map<String, dynamic> json) => MetadataTeam(
       avatar: json['avatar'] as String,
       id: json['id'] as int,
       kind: json['kind'] as String,
@@ -155,7 +155,8 @@ Team _$TeamFromJson(Map<String, dynamic> json) => Team(
       url: json['url'] as String,
     );
 
-Map<String, dynamic> _$TeamToJson(Team instance) => <String, dynamic>{
+Map<String, dynamic> _$MetadataTeamToJson(MetadataTeam instance) =>
+    <String, dynamic>{
       'avatar': instance.avatar,
       'id': instance.id,
       'kind': instance.kind,
