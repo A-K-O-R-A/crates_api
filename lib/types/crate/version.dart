@@ -3,6 +3,18 @@ import 'package:json_annotation/json_annotation.dart';
 part 'version.g.dart';
 
 @JsonSerializable()
+class VersionEndpoint {
+  VersionEndpoint({required this.version});
+
+  final Version version;
+
+  factory VersionEndpoint.fromJson(Map<String, dynamic> json) =>
+      _$VersionEndpointFromJson(json);
+
+  Map<String, dynamic> toJson() => _$VersionEndpointToJson(this);
+}
+
+@JsonSerializable()
 class Version {
   Version({
     this.auditActions,

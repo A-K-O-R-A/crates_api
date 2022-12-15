@@ -5,8 +5,8 @@ import 'version.dart';
 part 'metadata.g.dart';
 
 @JsonSerializable()
-class Metadata {
-  Metadata({
+class CrateMetadata {
+  CrateMetadata({
     required this.categories,
     required this.crate,
     required this.keywords,
@@ -18,10 +18,10 @@ class Metadata {
   final List<Keyword> keywords;
   final List<Version> versions;
 
-  factory Metadata.fromJson(Map<String, dynamic> json) =>
-      _$MetadataFromJson(json);
+  factory CrateMetadata.fromJson(Map<String, dynamic> json) =>
+      _$CrateMetadataFromJson(json);
 
-  Map<String, dynamic> toJson() => _$MetadataToJson(this);
+  Map<String, dynamic> toJson() => _$CrateMetadataToJson(this);
 }
 
 @JsonSerializable()

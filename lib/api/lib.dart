@@ -3,7 +3,7 @@ library crates_api;
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../types/metadata.dart';
+import '../types/crate_metadata.dart';
 
 part 'crates.dart';
 

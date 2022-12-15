@@ -6,6 +6,16 @@ part of 'version.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+VersionEndpoint _$VersionEndpointFromJson(Map<String, dynamic> json) =>
+    VersionEndpoint(
+      version: Version.fromJson(json['version'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$VersionEndpointToJson(VersionEndpoint instance) =>
+    <String, dynamic>{
+      'version': instance.version,
+    };
+
 Version _$VersionFromJson(Map<String, dynamic> json) => Version(
       auditActions: (json['auditActions'] as List<dynamic>?)
           ?.map((e) => AuditAction.fromJson(e as Map<String, dynamic>))

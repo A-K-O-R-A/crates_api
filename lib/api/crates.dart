@@ -1,7 +1,7 @@
 part of crates_api;
 
-Future<Metadata> metadata(String crate) async {
+Future<CrateMetadata> metadata(String crate) async {
   var json = await _getJSON('/crates/$crate');
 
-  return Metadata.fromJson(json);
+  return CrateMetadata.fromJson(json);
 }

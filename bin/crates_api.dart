@@ -1,12 +1,12 @@
 import 'package:crates_api/crates_api.dart' as crates_api;
-import 'package:crates_api/api/lib.dart' as crates_api2;
 
 void main(List<String> arguments) async {
   var api = crates_api.CratesAPI();
 
-  var metadata = await api.metadata("anyhow");
-  var metadata2 = await crates_api2.metadata("anyhow");
+  var crate_r = api.crate("anyhow");
+  var metadata = await crate_r.metadata();
+  var version = await crate_r.version("1.0.0");
 
   print(metadata.crate.categories);
-  print(metadata2.crate.categories);
+  print(version.version.checksum);
 }

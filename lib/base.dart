@@ -3,16 +3,16 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class BaseCratesAPI {
-  String _registry = 'crates.io';
-  String _apiRoot = '/api/v1';
+  String registry = 'crates.io';
+  String apiRoot = '/api/v1';
 
   BaseCratesAPI();
   BaseCratesAPI.withRoot(String apiRoot) {
-    _apiRoot = apiRoot;
+    apiRoot = apiRoot;
   }
   BaseCratesAPI.custom(String registry, String apiRoot) {
-    _registry = registry;
-    _apiRoot = apiRoot;
+    registry = registry;
+    apiRoot = apiRoot;
   }
 
   http.Client _client() {
@@ -20,7 +20,7 @@ class BaseCratesAPI {
   }
 
   Uri _uri(String apiPath) {
-    return Uri.http(_registry, '$_apiRoot/$apiPath');
+    return Uri.http(registry, '$apiRoot/$apiPath');
   }
 
   Future<dynamic> getJSON(String path) async {

@@ -6,7 +6,8 @@ part of 'metadata.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Metadata _$MetadataFromJson(Map<String, dynamic> json) => Metadata(
+CrateMetadata _$CrateMetadataFromJson(Map<String, dynamic> json) =>
+    CrateMetadata(
       categories: (json['categories'] as List<dynamic>)
           .map((e) => Category.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -19,7 +20,8 @@ Metadata _$MetadataFromJson(Map<String, dynamic> json) => Metadata(
           .toList(),
     );
 
-Map<String, dynamic> _$MetadataToJson(Metadata instance) => <String, dynamic>{
+Map<String, dynamic> _$CrateMetadataToJson(CrateMetadata instance) =>
+    <String, dynamic>{
       'categories': instance.categories,
       'crate': instance.crate,
       'keywords': instance.keywords,
