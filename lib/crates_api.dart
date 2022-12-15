@@ -1,7 +1,8 @@
-import 'package:crates_api/types/crate/authors.dart';
-import 'package:crates_api/types/crate/dependencies.dart';
+import 'package:crates_api/types/crate/version/authors.dart';
+import 'package:crates_api/types/crate/version/dependencies.dart';
+import 'package:crates_api/types/crate/version/downloads.dart';
+import 'package:crates_api/types/crate/version/version.dart';
 import 'package:crates_api/types/crate/metadata.dart';
-import 'package:crates_api/types/crate/version.dart';
 import 'package:crates_api/base.dart';
 
 class CratesAPI extends BaseCratesAPI {
@@ -23,6 +24,18 @@ class CrateR extends BaseCratesAPI {
   }
 
   Future<CrateMetadata> metadata() async {
+    var json = await getJSON('/crates/$crate');
+
+    return CrateMetadata.fromJson(json);
+  }
+
+  Future<CrateMetadata> downloads() async {
+    var json = await getJSON('/crates/$crate');
+
+    return CrateMetadata.fromJson(json);
+  }
+
+  Future<CrateMetadata> versions() async {
     var json = await getJSON('/crates/$crate');
 
     return CrateMetadata.fromJson(json);
@@ -77,9 +90,9 @@ class CrateVersionR extends BaseCratesAPI {
     return Dependencies.fromJson(json).dependencies;
   }
 
-  Future<VersionEndpoint> downloads() async {
-    var json = await getJSON('/crates/$crate/$version/authors');
+  Future<List<VersionDownload>> downloads() async {
+    var json = await getJSON('/crates/$crate/$version/downloads');
 
-    return VersionEndpoint.fromJson(json);
+    return Downloads.fromJson(json).version_downloads;
   }
 }

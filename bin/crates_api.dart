@@ -11,8 +11,10 @@ void main(List<String> arguments) async {
   // ignore: unused_local_variable
   var readme = await versionR.readme();
   var deps = await versionR.dependencies();
+  var downloads = await versionR.downloads();
 
   print(metadata.crate.categories);
   print(versionMetadata.checksum);
   print(deps[0].crate_id);
+  print(downloads[0].date);
 }

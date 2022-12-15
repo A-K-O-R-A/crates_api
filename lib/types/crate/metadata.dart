@@ -2,7 +2,7 @@
 
 import 'package:json_annotation/json_annotation.dart';
 
-import 'version.dart';
+import 'version/version.dart';
 
 part 'metadata.g.dart';
 
