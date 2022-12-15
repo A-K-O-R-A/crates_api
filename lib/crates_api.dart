@@ -1,9 +1,9 @@
-import 'package:crates_api/types/crate/downloads.dart';
-import 'package:crates_api/types/crate/version/authors.dart';
-import 'package:crates_api/types/crate/version/dependencies.dart';
-import 'package:crates_api/types/crate/version/downloads.dart';
-import 'package:crates_api/types/crate/version/version.dart';
-import 'package:crates_api/types/crate/metadata.dart';
+import 'package:crates_api/types/v1/crate/downloads.dart';
+import 'package:crates_api/types/v1/crate/version/authors.dart';
+import 'package:crates_api/types/v1/crate/version/dependencies.dart';
+import 'package:crates_api/types/v1/crate/version/downloads.dart';
+import 'package:crates_api/types/v1/crate/version/version.dart';
+import 'package:crates_api/types/v1/crate/metadata.dart';
 import 'package:crates_api/base.dart';
 
 class CratesAPI extends BaseCratesAPI {

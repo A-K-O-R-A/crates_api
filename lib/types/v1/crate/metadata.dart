@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:crates_api/types/crate/downloads.dart';
-import 'package:crates_api/types/crate/version/dependencies.dart';
+import 'version/dependencies.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'version/version.dart';
