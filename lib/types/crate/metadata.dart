@@ -1,5 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:crates_api/types/crate/downloads.dart';
+import 'package:crates_api/types/crate/version/dependencies.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'version/version.dart';
@@ -141,4 +143,124 @@ class Keyword {
       _$KeywordFromJson(json);
 
   Map<String, dynamic> toJson() => _$KeywordToJson(this);
+}
+
+@JsonSerializable()
+class Following {
+  Following({
+    required this.following,
+  });
+
+  bool following;
+
+  factory Following.fromJson(Map<String, dynamic> json) =>
+      _$FollowingFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FollowingToJson(this);
+}
+
+@JsonSerializable()
+class ReverseDependencies {
+  ReverseDependencies({
+    required this.dependencies,
+    required this.meta,
+    required this.versions,
+  });
+
+  List<Dependency> dependencies;
+  ReverseDependenciesMeta meta;
+  List<Version> versions;
+
+  factory ReverseDependencies.fromJson(Map<String, dynamic> json) =>
+      _$ReverseDependenciesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ReverseDependenciesToJson(this);
+}
+
+@JsonSerializable()
+class ReverseDependenciesMeta {
+  ReverseDependenciesMeta({
+    required this.total,
+  });
+
+  int total;
+
+  factory ReverseDependenciesMeta.fromJson(Map<String, dynamic> json) =>
+      _$ReverseDependenciesMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ReverseDependenciesMetaToJson(this);
+}
+
+@JsonSerializable()
+class OwnerTeams {
+  OwnerTeams({
+    required this.teams,
+  });
+
+  List<Team> teams;
+
+  factory OwnerTeams.fromJson(Map<String, dynamic> json) =>
+      _$OwnerTeamsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$OwnerTeamsToJson(this);
+}
+
+@JsonSerializable()
+class Team {
+  Team({
+    required this.avatar,
+    required this.id,
+    required this.kind,
+    required this.login,
+    required this.name,
+    required this.url,
+  });
+
+  String avatar;
+  int id;
+  String kind;
+  String login;
+  String name;
+  String url;
+
+  factory Team.fromJson(Map<String, dynamic> json) => _$TeamFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TeamToJson(this);
+}
+
+@JsonSerializable()
+class OwnerUsers {
+  OwnerUsers({
+    required this.users,
+  });
+
+  List<User> users;
+
+  factory OwnerUsers.fromJson(Map<String, dynamic> json) =>
+      _$OwnerUsersFromJson(json);
+
+  Map<String, dynamic> toJson() => _$OwnerUsersToJson(this);
+}
+
+@JsonSerializable()
+class User {
+  User({
+    required this.avatar,
+    required this.id,
+    required this.kind,
+    required this.login,
+    required this.name,
+    required this.url,
+  });
+
+  String avatar;
+  int id;
+  String kind;
+  String login;
+  String name;
+  String url;
+
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserToJson(this);
 }

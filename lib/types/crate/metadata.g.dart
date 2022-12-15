@@ -126,3 +126,101 @@ Map<String, dynamic> _$KeywordToJson(Keyword instance) => <String, dynamic>{
       'id': instance.id,
       'keyword': instance.keyword,
     };
+
+Following _$FollowingFromJson(Map<String, dynamic> json) => Following(
+      following: json['following'] as bool,
+    );
+
+Map<String, dynamic> _$FollowingToJson(Following instance) => <String, dynamic>{
+      'following': instance.following,
+    };
+
+ReverseDependencies _$ReverseDependenciesFromJson(Map<String, dynamic> json) =>
+    ReverseDependencies(
+      dependencies: (json['dependencies'] as List<dynamic>)
+          .map((e) => Dependency.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      meta: ReverseDependenciesMeta.fromJson(
+          json['meta'] as Map<String, dynamic>),
+      versions: (json['versions'] as List<dynamic>)
+          .map((e) => Version.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$ReverseDependenciesToJson(
+        ReverseDependencies instance) =>
+    <String, dynamic>{
+      'dependencies': instance.dependencies,
+      'meta': instance.meta,
+      'versions': instance.versions,
+    };
+
+ReverseDependenciesMeta _$ReverseDependenciesMetaFromJson(
+        Map<String, dynamic> json) =>
+    ReverseDependenciesMeta(
+      total: json['total'] as int,
+    );
+
+Map<String, dynamic> _$ReverseDependenciesMetaToJson(
+        ReverseDependenciesMeta instance) =>
+    <String, dynamic>{
+      'total': instance.total,
+    };
+
+OwnerTeams _$OwnerTeamsFromJson(Map<String, dynamic> json) => OwnerTeams(
+      teams: (json['teams'] as List<dynamic>)
+          .map((e) => Team.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$OwnerTeamsToJson(OwnerTeams instance) =>
+    <String, dynamic>{
+      'teams': instance.teams,
+    };
+
+Team _$TeamFromJson(Map<String, dynamic> json) => Team(
+      avatar: json['avatar'] as String,
+      id: json['id'] as int,
+      kind: json['kind'] as String,
+      login: json['login'] as String,
+      name: json['name'] as String,
+      url: json['url'] as String,
+    );
+
+Map<String, dynamic> _$TeamToJson(Team instance) => <String, dynamic>{
+      'avatar': instance.avatar,
+      'id': instance.id,
+      'kind': instance.kind,
+      'login': instance.login,
+      'name': instance.name,
+      'url': instance.url,
+    };
+
+OwnerUsers _$OwnerUsersFromJson(Map<String, dynamic> json) => OwnerUsers(
+      users: (json['users'] as List<dynamic>)
+          .map((e) => User.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$OwnerUsersToJson(OwnerUsers instance) =>
+    <String, dynamic>{
+      'users': instance.users,
+    };
+
+User _$UserFromJson(Map<String, dynamic> json) => User(
+      avatar: json['avatar'] as String,
+      id: json['id'] as int,
+      kind: json['kind'] as String,
+      login: json['login'] as String,
+      name: json['name'] as String,
+      url: json['url'] as String,
+    );
+
+Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
+      'avatar': instance.avatar,
+      'id': instance.id,
+      'kind': instance.kind,
+      'login': instance.login,
+      'name': instance.name,
+      'url': instance.url,
+    };

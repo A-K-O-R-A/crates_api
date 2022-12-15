@@ -17,6 +17,18 @@ class VersionEndpoint {
 }
 
 @JsonSerializable()
+class CrateVersionsEndpoint {
+  CrateVersionsEndpoint({required this.versions});
+
+  final List<Version> versions;
+
+  factory CrateVersionsEndpoint.fromJson(Map<String, dynamic> json) =>
+      _$CrateVersionsEndpointFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CrateVersionsEndpointToJson(this);
+}
+
+@JsonSerializable()
 class Version {
   Version({
     required this.audit_actions,

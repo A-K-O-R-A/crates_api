@@ -16,6 +16,20 @@ Map<String, dynamic> _$VersionEndpointToJson(VersionEndpoint instance) =>
       'version': instance.version,
     };
 
+CrateVersionsEndpoint _$CrateVersionsEndpointFromJson(
+        Map<String, dynamic> json) =>
+    CrateVersionsEndpoint(
+      versions: (json['versions'] as List<dynamic>)
+          .map((e) => Version.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$CrateVersionsEndpointToJson(
+        CrateVersionsEndpoint instance) =>
+    <String, dynamic>{
+      'versions': instance.versions,
+    };
+
 Version _$VersionFromJson(Map<String, dynamic> json) => Version(
       audit_actions: (json['audit_actions'] as List<dynamic>)
           .map((e) => AuditAction.fromJson(e as Map<String, dynamic>))

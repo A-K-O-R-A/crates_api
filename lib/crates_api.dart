@@ -1,3 +1,4 @@
+import 'package:crates_api/types/crate/downloads.dart';
 import 'package:crates_api/types/crate/version/authors.dart';
 import 'package:crates_api/types/crate/version/dependencies.dart';
 import 'package:crates_api/types/crate/version/downloads.dart';
@@ -29,16 +30,40 @@ class CrateR extends BaseCratesAPI {
     return CrateMetadata.fromJson(json);
   }
 
-  Future<CrateMetadata> downloads() async {
-    var json = await getJSON('/crates/$crate');
+  Future<CrateDownloads> downloads() async {
+    var json = await getJSON('/crates/$crate/downloads');
 
-    return CrateMetadata.fromJson(json);
+    return CrateDownloads.fromJson(json);
   }
 
-  Future<CrateMetadata> versions() async {
+  Future<List<Version>> versions() async {
     var json = await getJSON('/crates/$crate');
 
-    return CrateMetadata.fromJson(json);
+    return CrateVersionsEndpoint.fromJson(json).versions;
+  }
+
+  Future<bool> following() async {
+    var json = await getJSON('/crates/$crate/following');
+
+    return Following.fromJson(json).following;
+  }
+
+  Future<ReverseDependencies> reverseDependencies() async {
+    var json = await getJSON('/crates/$crate/reverse_dependencies');
+
+    return ReverseDependencies.fromJson(json);
+  }
+
+  Future<List<Team>> ownerTeam() async {
+    var json = await getJSON('/crates/$crate/owner_team');
+
+    return OwnerTeams.fromJson(json).teams;
+  }
+
+  Future<List<User>> ownerUser() async {
+    var json = await getJSON('/crates/$crate/owner_user');
+
+    return OwnerUsers.fromJson(json).users;
   }
 }
 
