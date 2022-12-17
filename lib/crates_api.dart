@@ -2,8 +2,15 @@ import 'types/v1/types.dart' as types;
 import 'base.dart';
 
 class CratesAPI extends BaseCratesAPI {
-  CrateR crate(String crate) {
-    return CrateR(crate, registry, apiRoot);
+  CratesAPI(super.applicationName);
+
+  CratesAPI.custom(super.applicationName, String registry, String apiRoot) {
+    registry = registry;
+    apiRoot = apiRoot;
+  }
+
+  CrateRouter crate(String crate) {
+    return CrateRouter(applicationName, crate, registry, apiRoot);
   }
 
   Future<types.Keywords> keywords() async {
@@ -55,16 +62,18 @@ class CratesAPI extends BaseCratesAPI {
   }
 }
 
-class CrateR extends BaseCratesAPI {
+class CrateRouter extends BaseCratesAPI {
   String crate;
 
-  CrateR(this.crate, String registry, String apiRoot) {
+  CrateRouter(
+      super.applicationName, this.crate, String registry, String apiRoot) {
     this.registry = registry;
     this.apiRoot = apiRoot;
   }
 
-  CrateVersionR version(String version) {
-    return CrateVersionR(crate, version, registry, apiRoot);
+  CrateVersionRouter version(String version) {
+    return CrateVersionRouter(
+        applicationName, crate, version, registry, apiRoot);
   }
 
   Future<types.CrateMetadata> metadata() async {
@@ -110,11 +119,12 @@ class CrateR extends BaseCratesAPI {
   }
 }
 
-class CrateVersionR extends BaseCratesAPI {
+class CrateVersionRouter extends BaseCratesAPI {
   String crate;
   String version;
 
-  CrateVersionR(this.crate, this.version, String registry, String apiRoot) {
+  CrateVersionRouter(super.applicationName, this.crate, this.version,
+      String registry, String apiRoot) {
     this.registry = registry;
     this.apiRoot = apiRoot;
   }

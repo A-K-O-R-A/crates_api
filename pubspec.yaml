@@ -1,13 +1,12 @@
 name: crates_api
-description: A sample command-line application.
+description: Simple Dart package to access the crates.io api.
 version: 1.0.0
+repository: https://github.com/a-K-O-R-A/crates_api
+
 # homepage: https://www.example.com
 
 environment:
   sdk: ">=2.18.4 <3.0.0"
-
-# dependencies:
-#   path: ^1.8.0
 
 dev_dependencies:
   lints: ^2.0.0

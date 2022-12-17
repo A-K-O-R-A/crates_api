@@ -2,8 +2,7 @@ import 'package:crates_api/crates_api.dart' as crates_api;
 import 'package:crates_api/types/v1/error.dart';
 
 void main(List<String> arguments) async {
-  var api = crates_api.CratesAPI();
-
+  var api = crates_api.CratesAPI("crates_api.dart testing");
   var crateR = api.crate("diesel");
   var metadata = await crateR.metadata();
   var crateDownloads = await crateR.downloads();
